@@ -1,0 +1,31 @@
+<div class="container" id="_container">
+    <div class="row d-flex align-items-center" id="row_top">
+        <div class="col-sm">
+            <img src="{{ produtoDetalhe.linkFoto }}" width="100%">
+        </div>
+        <div class="col-sm">
+            <label for="txtEmail" class="form-label">Quantidade</label>
+            <input type="number" [(ngModel)]="quantidade" class="form-control" id="inputValor" value="1" max="100"
+                min="1">
+        </div>
+        <div class="col-sm">
+            <label for="txtDataNasc" class="form-label">Nome</label><br>
+            <p>{{ produtoDetalhe.nome }}</p>
+        </div>
+        <div class="col-sm">
+            <label for="txtDataNasc" class="form-label">Descrição</label>
+            <p>{{ produtoDetalhe.detalhe }}</p>
+        </div>
+        <div class="col-sm">
+            <label for="txtDataNasc" class="form-label">Valor</label>
+            <p>{{ produtoDetalhe.preco | number: '1.2-2' | currency: 'BRL' }}</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm d-flex justify-content-end">
+            <button type="button" (click)="adicionarCarrinho()" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Add ao carrinho</button>
+        </div>
+    </div>
+</div>

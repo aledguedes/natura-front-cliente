@@ -1,0 +1,155 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalErroCPF" id="btnModal">
+  ops!
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modalErroCPF" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ops!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{mensagemErro}}
+      </div>
+      <div class="modal-footer">
+        <br>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Busca CPF -->
+<div class="container" id="ctnCpf">
+  <div class="d-flex justify-content-center">
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label for="txtCpf" class="col-form-label">Informe seu CPF</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" id="txtCpf" class="form-control" [(ngModel)]="cliente.cpf">
+      </div>
+      <div class="col-auto">
+        <span id="passwordHelpInline" class="form-text">
+          <button type="submit" class="btn btn-primary" (click)="buscarCPF()"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Formulario -->
+<div class="container" *ngIf="visivel">
+  <div class="row" *ngIf="achou == false">
+    <div class="col-12">
+      <div class="alert alert-primary fade show" role="alert" id="divAlert">
+        <strong>Bem vinda(o)!</strong> Por favor, cadastre-se!
+        <button type="button" class="btn-close" (click)="ocultaAlert()"></button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <label for="txtNome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="txtNome" [(ngModel)]="cliente.nome">
+    </div>
+    <div class="col-sm">
+      <label for="txtEmail" class="form-label">Email</label>
+      <input type="text" class="form-control" id="txtEmail" [(ngModel)]="cliente.email">
+    </div>
+    <div class="col-sm">
+      <label for="txtDataNasc" class="form-label">Data de Nascimento</label>
+      <input type="date" class="form-control" id="txtDataNasc" [(ngModel)]="cliente.dataNasc">
+    </div>
+  </div>
+
+  <!--Modal Confirmação -->  
+  <div class="col-sm d-flex justify-content-center" id="idModal" *ngIf="exibirPergunta">
+    <button type="button" class="btn btn-primary d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#modalConfirmaEndereco"
+      id="myModal">
+      Confirme seus dados!
+    </button> 
+    <!-- Modal -->
+    <div class="modal fade" id="modalConfirmaEndereco" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirme seus dados!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Seu endereço {{ msgEndereco }}continuar o mesmo?
+          </div>
+          <div class="modal-footer">
+            <br>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="ocultarForm()"><i class="fas fa-check"></i>  Sim</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="exibirForm()"><i class="fas fa-times"></i>  Não</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Form Dados -->
+  <div *ngIf="exibirFormEndereco">
+    <div class="row">
+      <div class="col-sm">
+        <label for="txtTelefone" class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="txtTelefone" [(ngModel)]="cliente.telefone">
+      </div>
+      <div class="col-sm">
+        <label for="txtCpf" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="txtCpf" [(ngModel)]="cliente.cpf">
+      </div>
+      <div class="col-sm">
+        <label for="txtCep" class="form-label">CEP</label>
+        <input type="text" class="form-control" id="txtCep" [(ngModel)]="cliente.cep">
+      </div>
+      <div class="col-sm-1" id="bttn">
+        <label for="txtCep" class="form-label"></label><br>
+        <button type="button" id="btnCep" (click)="buscarCEP()" class="btn btn-primary">Buscar CEP</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="txtLogradouro" class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="txtLogradouro" [(ngModel)]="cliente.logradouro">
+      </div>
+      <div class="col-sm-1">
+        <label for="txtNumero" class="form-label">Numero</label>
+        <input type="text" class="form-control" id="txtNumero" [(ngModel)]="cliente.numero">
+      </div>
+      <div class="col-sm">
+        <label for="txtComplemento" class="form-label">Complemento</label>
+        <input type="text" class="form-control" id="txtComplemento" [(ngModel)]="cliente.complemento">
+      </div>
+      <div class="col-sm">
+        <label for="txtBairro" class="form-label">Bairro</label>
+        <input type="text" class="form-control" id="txtBairro" [(ngModel)]="cliente.bairro">
+      </div>
+      <div class="col-sm">
+        <label for="txtCidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="txtCidade" [(ngModel)]="cliente.cidade">
+      </div>
+      <div class="col-sm-1">
+        <label for="txtEstado" class="form-label">UF</label>
+        <input type="text" class="form-control" id="txtEstado" [(ngModel)]="cliente.estado">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <label for="txtObservacao" class="form-label">Observações</label>
+      <input type="text" class="form-control" [(ngModel)]="pedido.observacoes" id="txtObservacao"
+        placeholder="Informações adicionais">
+    </div>
+    <div class="row" id="row_btnFinalizar" *ngIf="!exibirPergunta">
+      <div class="col-sm d-flex justify-content-end">
+        <button type="button" class="btn btn-primary" id="btnFinalizar" (click)="finalizarPedido()"><i class="far fa-smile-beam"></i> Finalizar
+          Pedido</button>
+      </div>
+    </div>
+  </div>
+  <!--      -->

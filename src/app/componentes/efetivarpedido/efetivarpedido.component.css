@@ -1,0 +1,47 @@
+#divDetalhes{
+    /* ALERT */
+    padding: 0 15px;
+}
+#divBusca{
+    /* CAMPO DE BUSCA PELO CPF */
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+#divAlert{
+    margin: 1em 0;
+    width: 100%;
+    text-align: center;
+}
+label{
+    font-size: 13px;
+}
+#btnModal{
+    visibility: hidden;
+}
+#btnCep{
+    height: 38px;
+    width: 75px;
+    font-size: 10px;
+}
+#bttn{
+    padding: 5px;
+}
+
+#ctnCpf{
+    padding-bottom: 1em;
+}
+#row_btnFinalizar{
+    padding: 1em;
+}
+
+#idModal{
+    padding-top: 2em;
+}
+.iconNot{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+ }

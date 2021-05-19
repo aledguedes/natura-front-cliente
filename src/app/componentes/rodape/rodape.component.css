@@ -1,0 +1,72 @@
+ /*@media screen and (max-width: 1024px) {
+   estilos
+ }*/
+
+ .contact-area{
+   text-align: center;
+   background-color: #221C6B;
+   color:#FFFFFF;
+ }
+.contact-area h3{  
+  padding-top: 10px;
+}
+ /*   * linha entre contatos e form
+ .contact-box{
+  border-bottom: 1px solid #FFFFFF;
+}
+*/
+
+.contact-box i{
+  font-size: 30px;
+  color:#FFFFFF;
+}
+
+.contact-box p{
+  font-size: 12px;  
+}
+.contact-title{
+  font-weight: bold;
+  color:#3ec1d5;
+}
+
+/* form */
+#msg-box{
+  font-size: 22px;
+}
+#contact-form input[type="text"], #contact-form input[type="email"], #contact-form textarea{
+  margin-bottom: 15px;
+  border-radius: 0%;
+}
+
+#contact-form .main-btn{
+  width: 120px;
+  height: 50px;
+  border-radius: 30px;
+  background: #3ec1d5;
+}
+
+#contact-form .main-btn:hover{
+  color:#ffffff; 
+}
+/* COPY */
+#copy-area{
+  background-color: #221C6B;
+  color:#FFFFFF;
+}
+#_fluid{
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #FFFFFF;
+}
+#copy-area .container p{
+  margin-bottom: 0;  
+  font-size: 12px;
+}
+#copy-area .container a:link{
+  font-weight: bold;
+  color: #444;
+  text-decoration: none;
+}
+#copy-area .container a:hover{
+  text-decoration: #3ec1d5;
+}

@@ -1,0 +1,18 @@
+<div class="container" id="destaque">
+  <div class="row">
+    <!-- lista é a variavel criada cards.componets.ts -->
+    <div *ngFor="let ITEM of lista" class="col-sm-3 mb-3">
+      <div class="card">
+        <img src="{{ ITEM.linkFoto }}" class="card-img-top" alt="{{ITEM.nome}}}">
+        <div class="card-body">
+          <h5 class="card-title">{{ ITEM.nome }}</h5>
+          <h6 class="card-subtitle mb-2 ">{{ ITEM.preco | number: '1.2-2' | currency: 'BRL' }}</h6>
+          <p class="card-text">{{ ITEM.detalhe }}</p>
+          <p class="card-text">Categoria: {{ ITEM.categoria.nome }}</p>
+          <div class="d-flex justify-content-center"><a [routerLink]="['/detalhes/',ITEM.id]"
+              class="btn btn-primary "><i class="fas fa-cart-plus "></i> Eu quero!</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

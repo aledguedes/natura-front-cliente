@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" id="txtCarrinho">
+            <h3>Carrinho de Compras</h3>
+        </div>
+    </div>
+    <div class="row" *ngIf="vazio == true">
+        <div class="col-12 text-center">
+            <h3>Sem itens!</h3>
+        </div>
+    </div>
+</div>
+<div class="container" id="_container" *ngIf="vazio == false">
+    <div class="row" id="idRow" *ngFor="let ITEM of pedido.itensPedido">
+        <div class="col-sm d-flex align-items-center" id="imgSize">
+            <img src="{{ ITEM.produto.linkFoto }}">
+        </div>
+        <div class="col-sm-3">
+            <h6>Produto</h6>
+            <p>{{ITEM.produto.nome}}</p>
+        </div>
+        <div class="col-sm">
+            <h6>Quant.</h6>
+            <p>{{ITEM.qtdeItem}}</p>
+        </div>
+        <div class="col-sm">
+            <h6>Preço</h6>
+            <p>R$ {{ITEM.precoUnitario | number: '1.2-2'}}</p>
+        </div>
+        <div class="col-sm">
+            <h6>SubTotal</h6>
+            <p>R$ {{ITEM.precoTotal | number: '1.2-2'}}</p>
+        </div>
+        <div class="col-sm-1">
+            <br />
+            <p><i (click)="removerItens()" class="far fa-trash-alt"></i></p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" id="subTotal">
+        <div class="col-sm">
+            <h3>Total: R$ {{pedido.valorTotal | number: '1.2-2'}}</h3>
+        </div>
+    </div>
+    <div class="row" *ngIf="pedido != null && pedido.itensPedido.length > 0">
+        <div class="col-sm" id="btnFinalizar">
+            <button class="btn btn-primary" (click)="efetivar()"><i class="far fa-check-circle"></i> Finalizar
+                compra</button>
+        </div>
+    </div>
+</div>

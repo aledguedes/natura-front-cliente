@@ -1,0 +1,19 @@
+#destaque{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 0px 12px;
+}
+
+.card{
+    margin-bottom: 1em;
+    overflow: hidden;
+    /*-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;*/
+}
+.card:hover{
+    box-shadow: 0 10px 5px rgba(15, 15, 15, 0.5);
+    /*-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);*/
+}

@@ -1,0 +1,19 @@
+#_container{
+    padding: 2em;
+}
+.container-fluid{
+    padding-top: 1em;
+}
+button{
+    align-items: center;
+}
+#box-ttl   {
+    padding: 1em;
+}
+#inputValor {
+    width: 50%;
+}
+label{
+    width: 100%;
+    font-weight: bold;
+}
